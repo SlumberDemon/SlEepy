@@ -1,10 +1,22 @@
 import discord 
 from discord.ext import commands
+from os import getenv
 
-bot = commands.Bot(command_prefix='-')
+
+# Intents
+
+intents = discord.Intents.default()
+intents.members = True
+
+# Setup
+
+bot = commands.Bot(command_prefix='-', intents=intents)
+inter_client = InteractionClient(client, modify_send=False) # modify_send=False to make discord.py 2.0 views work
+
+# Stuff
 
 @bot.command()
 async def ping(ctx):
     await ctx.send('pong')
 
-bot.run('OTAzMTg3NzU2MjU0MTMwMTc3.YXpVJQ.4sob8XqW7XmAzLd6HpisoC0ISKU')
+bot.run(getenv('TOKEN'))
