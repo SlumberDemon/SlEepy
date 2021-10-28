@@ -19,7 +19,7 @@ guilds = [877399405056102431, 819112190115446844]
 
 @bot.command(aliases=['ping'], help='Shows bot latency')
 async def latency(ctx):
-    embed = discord.Embed(description=f'🏓 Pong! {round(bot.latency * 1000)}ms', colour=0xffa408)
+    embed = discord.Embed(description=f'🏓 Pong! {round(bot.latency * 1000)}ms', colour=0xc3d9df)
     await ctx.send(embed=embed)
 
 @inter_client.slash_command(

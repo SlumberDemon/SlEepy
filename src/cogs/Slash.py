@@ -10,7 +10,7 @@ class Slash(commands.Cog):
 
     @slash_command(description='Shows bot latency')
     async def latency(self, ctx):
-        embed = discord.Embed(description=f'🏓 Pong! {round(self.bot.latency * 1000)}ms', colour=0xffa408)
+        embed = discord.Embed(description=f'🏓 Pong! {round(self.bot.latency * 1000)}ms', colour=0xc3d9df)
         await ctx.send(embed=embed, ephemeral=True)
 
     @slash_command(description='Bot invite')
@@ -20,7 +20,7 @@ class Slash(commands.Cog):
 
     @slash_command(description='Shows info on the developer')
     async def slumberdemon(self, ctx):
-        embed = discord.Embed(title='SlumberDemon', description='Professional Sleepy Head \n and B.O.A.T Developer', colour=0xecdbd9)
+        embed = discord.Embed(title='SlumberDemon', description='Professional Sleepy Head \n and B.O.A.T Developer', colour=0xc3d9df)
         embed.set_thumbnail(url='https://cdn.discordapp.com/avatars/549563196579774465/f1df0e07a490bfbeb4704a54d6181fd8.webp?size=1024')
         embed.add_field(name='Website', value='[click here](https://slumberdemon.carrd.co/)')
         await ctx.send(embed=embed)
