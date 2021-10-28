@@ -22,14 +22,6 @@ async def latency(ctx):
     embed = discord.Embed(description=f'🏓 Pong! {round(bot.latency * 1000)}ms', colour=0xc3d9df)
     await ctx.send(embed=embed)
 
-@inter_client.slash_command(
-    name="hello", # Defaults to the function name
-    description="Says hello",
-    guild_ids=guilds
-)
-async def hello(inter):
-    await inter.reply("Hello!")
-
 # Cogs
 
 bot.load_extension('cogs.Slash')

@@ -29,8 +29,23 @@ class Slash(commands.Cog):
     
     # Mod
 
+    @slash_command(description='Ban user')
+    @dislash.has_permissions(ban_members=True)
+    async def ban(self, ctx, member:discord.Member, *, reason=None):
+        await member.ban(reason=reason)
+        icon = member.avatar.url
+        embed = discord.Embed(description=f'Reason: `{reason}`', colour=0xc3d9df)
+        embed.set_author(name=f'{member} has been kicked', icon_url=icon)
+        await ctx.send(embed=embed)
 
-
+    @slash_command(description='Kick user')
+    @dislash.has_permissions(kick_members=True)
+    async def ban(self, ctx, member:discord.Member, *, reason=None):
+        await member.kick(reason=reason)
+        icon = member.avatar.url
+        embed = discord.Embed(description=f'Reason: `{reason}`', colour=0xc3d9df)
+        embed.set_author(name=f'{member} has been kicked', icon_url=icon)
+        await ctx.send(embed=embed)
 
 
 def setup(bot):
