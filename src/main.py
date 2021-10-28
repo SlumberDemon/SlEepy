@@ -11,7 +11,7 @@ intents.members = True
 # Setup
 
 bot = commands.Bot(command_prefix='-', intents=intents)
-inter_client = InteractionClient(client, modify_send=False) # modify_send=False to make discord.py 2.0 views work
+inter_client = InteractionClient(bot, modify_send=False) # modify_send=False to make discord.py 2.0 views work
 
 # Stuff
 
