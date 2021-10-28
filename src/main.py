@@ -38,6 +38,6 @@ async def hello(inter):
 
 # Cogs
 
-bot.add_cog('cogs.Slash')
+bot.load_extension('cogs.Slash')
 
 bot.run(getenv('TOKEN'))
