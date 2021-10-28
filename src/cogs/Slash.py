@@ -18,7 +18,7 @@ class Slash(commands.Cog):
     @slash_command(description='Bot invite')
     async def invite(self, ctx):
         embed = discord.Embed(description='Bot invite', colour=0xc3d9df)
-        await ctx.send(embed=embed, view=invite_link)
+        await ctx.send(embed=embed, view=invite_link())
 
     @slash_command(description='Shows info on the developer')
     async def slumberdemon(self, ctx):
