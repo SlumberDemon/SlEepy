@@ -11,12 +11,12 @@ class Slash(commands.Cog):
     @slash_command(description='Shows bot latency')
     async def latency(self, ctx):
         embed = discord.Embed(description=f'🏓 Pong! {round(self.bot.latency * 1000)}ms', colour=0xc3d9df)
-        await ctx.send(embed=embed, ephemeral=True)
+        await ctx.send(embed=embed)
 
     @slash_command(description='Bot invite')
     async def invite(self, ctx):
         embed = discord.Embed(description='[invite](https://discord.com/api/oauth2/authorize?client_id=903187756254130177&permissions=3557156934&scope=applications.commands%20bot)', colour=0xc3d9df)
-        await ctx.send(embed=embed, ephemeral=True)
+        await ctx.send(embed=embed
 
     @slash_command(description='Shows info on the developer')
     async def slumberdemon(self, ctx):
