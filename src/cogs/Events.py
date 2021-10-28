@@ -7,7 +7,7 @@ class Events(commands.Cog):
 
     @commands.Cog.listener()
     async def on_ready(self):
-        await self.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='-help'))
+        await self.bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='-help'))
         print('Logged in as ---->', self.bot.user)
 
 def setup(bot):
