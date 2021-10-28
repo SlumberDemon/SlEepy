@@ -15,6 +15,13 @@ bot = commands.Bot(command_prefix='-', intents=intents)
 inter_client = InteractionClient(bot, modify_send=False) # modify_send=False to make discord.py 2.0 views work
 guilds = [877399405056102431, 819112190115446844]
 
+# Events
+
+@bot.event
+async def on_ready():
+    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='-help'))
+    print('Bot Online!')
+
 # Stuff
 
 @bot.command()
@@ -28,5 +35,9 @@ async def ping(ctx):
 )
 async def hello(inter):
     await inter.reply("Hello!")
+
+# Cogs
+
+bot.add_cog('cogs.Slash')
 
 bot.run(getenv('TOKEN'))
