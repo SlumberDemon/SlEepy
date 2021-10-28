@@ -15,18 +15,12 @@ bot = commands.Bot(command_prefix='-', intents=intents)
 inter_client = InteractionClient(bot, modify_send=False) # modify_send=False to make discord.py 2.0 views work
 guilds = [877399405056102431, 819112190115446844]
 
-# Events
-
-@bot.event
-async def on_ready():
-    await bot.change_presence(activity=discord.Activity(type=discord.ActivityType.watching, name='-help'))
-    print('Bot Online!')
-
 # Stuff
 
-@bot.command()
-async def ping(ctx):
-    await ctx.send('pong')
+@bot.command(aliases=['ping'], help='Shows bot latency')
+async def latency(ctx):
+    embed = discord.Embed(description=f'🏓 Pong! {round(client.latency * 1000)}ms', colour=0xffa408)
+    await ctx.send(embed=embed)
 
 @inter_client.slash_command(
     name="hello", # Defaults to the function name
@@ -39,5 +33,6 @@ async def hello(inter):
 # Cogs
 
 bot.load_extension('cogs.Slash')
+bot.load_extension('cogs.Events')
 
 bot.run(getenv('TOKEN'))
