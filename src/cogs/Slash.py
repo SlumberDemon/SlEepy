@@ -35,18 +35,17 @@ class Slash(commands.Cog):
         await member.ban(reason=reason)
         icon = member.avatar.url
         embed = discord.Embed(description=f'Reason: `{reason}`', colour=0xc3d9df)
-        embed.set_author(name=f'{member} has been kicked', icon_url=icon)
+        embed.set_author(name=f'{member} banned', icon_url=icon)
         await ctx.send(embed=embed)
 
     @slash_command(description='Kick user')
     @dislash.has_permissions(kick_members=True)
-    async def ban(self, ctx, member:discord.Member, *, reason=None):
+    async def kick(self, ctx, member:discord.Member, *, reason=None):
         await member.kick(reason=reason)
         icon = member.avatar.url
         embed = discord.Embed(description=f'Reason: `{reason}`', colour=0xc3d9df)
-        embed.set_author(name=f'{member} has been kicked', icon_url=icon)
+        embed.set_author(name=f'{member} kicked', icon_url=icon)
         await ctx.send(embed=embed)
-
 
 def setup(bot):
     bot.add_cog(Slash(bot))
