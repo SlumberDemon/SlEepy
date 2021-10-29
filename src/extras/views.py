@@ -50,3 +50,9 @@ class invite_link(discord.ui.View):
         url1 = f'https://discord.com/api/oauth2/authorize?client_id=903187756254130177&permissions=3557156934&scope=applications.commands%20bot'
 
         self.add_item(discord.ui.Button(label='Invite', url=url1))
+
+class url_button_generator(discord.ui.View)
+    def __init__(self, label, url):
+        super().__init__()
+
+        self.add_item(discord.ui.Button(label=label, url=url))
