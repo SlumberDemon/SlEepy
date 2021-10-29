@@ -70,9 +70,7 @@ class Slash(commands.Cog):
     
     @slash_command(description='Giveaway command')
     @dislash.has_permissions(manage_messages=True)
-    async def giveaway(self, time, prize, channel_id=None):
-        if channel = None:
-            channel = ctx.channel
+    async def giveaway(self, time, prize, channel_id):
         time_convert = {'s':1, 'm':60, 'h':3600, 'd': 86400}
         ctime = int(time[0]) * time_convert[time[-1]]
         channel = ctx.get_channel(channel_id)
