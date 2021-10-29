@@ -76,7 +76,7 @@ class Slash(commands.Cog):
     
     @slash_command(description='Giveaway command')
     @dislash.has_permissions(manage_messages=True)
-    async def giveaway(self, ctx, time, prize, channel_id:discord.Channel):
+    async def giveaway(self, ctx, time, prize, channel_id):
         time_convert = {'s':1, 'm':60, 'h':3600, 'd': 86400}
         ctime = int(time[0]) * time_convert[time[-1]]
         channel = self.bot.get_channel(channel_id)
@@ -98,6 +98,7 @@ class Slash(commands.Cog):
         embed2.set_footer(text='Ended at ')
         await msg.edit('🎉 GIVEAWAY ENDED 🎉', embed=embed2)
         await ctx.send(f'Congratulations {winner.mention}! You won the **{prize}**!', view=view)
+        print(channel)
 
 
 
