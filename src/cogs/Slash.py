@@ -55,16 +55,16 @@ class Slash(commands.Cog):
 
     @slash_command(description='Uban user')
     @dislash.has_permissions(ban_members=True)
-    async def unban(self, ctx, user):
+    async def unban(self, ctx, member):
         banned_users = await ctx.guild.bans()
-        user_name, user_discriminator = user.split('#')
+        member_name, member_discriminator = member.split('#')
         
         for ban_entery in banned_users:
-            member = ban_entery.user
+            user = ban_entery.user
 
-            if (member.name, member.discriminator) == (user_name, user_discriminator):
+            if (user.name, user.discriminator) == (member_name, member_discriminator):
                 await ctx.guild.unban(user)
-                embed.set_author(name=f'{member.name}#{member.discriminator} Unbanned', icon_url=user.avatar.url)
+                embed.set_author(name=f'{user.name}#{user.discriminator} Unbanned', icon_url=user.avatar.url)
                 await ctx.send(embed=embed)
                 return
 
