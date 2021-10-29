@@ -30,7 +30,8 @@ class Slash(commands.Cog):
     @slash_command(description='Help command')
     async def help(self, ctx):
         view = Dropdown_Help_Send(ctx)
-        await ctx.send('Get some help!!!', view=view)
+        embed = discord.Embed(description='**Bot Help** \n Hello! Welcome to the help page. \n ** ** \n Use \"/help\" for this view. \n Use the dropdown menu below to select a category. \n **Support Server** \n For more help, consider joining the official server over at https://discord.gg/sQxptgyAu8 \n ** ** \n I\'m also open source. You can see my code on [GitHub](open source soon)!')
+        await ctx.send(embed=embed, view=view)
     
     # Mod
 
