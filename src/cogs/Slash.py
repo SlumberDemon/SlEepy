@@ -55,8 +55,7 @@ class Slash(commands.Cog):
 
     @slash_command(description='Uban user')
     @dislash.has_permissions(ban_members=True)
-    async def unban(self, ctx, member, *, reason=None):
-        embed = discord.Embed(colour=0xc3d9df)
+    async def unban(self, ctx, user):
         banned_users = await ctx.guild.bans()
         member_name, member_discriminator = member.split('#')
         
