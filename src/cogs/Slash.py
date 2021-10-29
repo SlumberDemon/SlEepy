@@ -88,7 +88,7 @@ class Slash(commands.Cog):
         new_msg = await ctx.channel.fetch_message(msg.id)
 
         users = await new_msg.reactions[0].users().flatten()
-        users.pop(users.index(client.user))
+        users.pop(users.index(self.user))
 
         winner = random.choice(users)
 
