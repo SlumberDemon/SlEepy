@@ -85,9 +85,9 @@ class Slash(commands.Cog):
         await msg.add_reaction('🎉')
         await asyncio.sleep(ctime)
 
-        new_gaw_msg = await ctx.channel.fetch_message(gaw_msg.id)
+        new_msg = await ctx.channel.fetch_message(msg.id)
 
-        users = await new_gaw_msg.reactions[0].users().flatten()
+        users = await new_msg.reactions[0].users().flatten()
         users.pop(users.index(client.user))
 
         winner = random.choice(users)
