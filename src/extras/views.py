@@ -51,7 +51,7 @@ class invite_link(discord.ui.View):
 
         self.add_item(discord.ui.Button(label='Invite', url=url1))
 
-class url_button_generator(discord.ui.View)
+class url_button_generator(discord.ui.View):
     def __init__(self, label, url):
         super().__init__()
 
