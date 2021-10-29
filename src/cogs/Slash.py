@@ -1,4 +1,4 @@
-import discord, dislash
+import discord, dislash, asyncio, random
 from dislash import slash_command
 from discord.ext import commands
 from src.extras.views import invite_link
@@ -76,7 +76,7 @@ class Slash(commands.Cog):
         time_convert = {'s':1, 'm':60, 'h':3600, 'd': 86400}
         ctime = int(time[0]) * time_convert[time[-1]]
         channel = ctx.get_channel(channel_id)
-        embed1 = discord.Embed(title=prize, description=f'React with 🎉 to enter \n Time remaining: {ctime}')
+        embed1 = discord.Embed(title=prize, description=f'React with 🎉 to enter \n Time remaining: {ctime}', colour=0xc3d9df)
         msg = await channel.send(embed=embed1)
 
         await msg.add_reaction('🎉')
