@@ -53,6 +53,23 @@ class Slash(commands.Cog):
         embed.set_author(name=f'{member} kicked', icon_url=icon)
         await ctx.send(embed=embed)
 
+    @slash_command(description='Uban user')
+    @dislash.has_permissions(ban_members=True)
+    async def unban(self, ctx, member, *, reason=None):
+        embed = discord.Embed(description=f'Reason: `{reason}`', colour=0xc3d9df)
+        embed.set_author(name=f'{member} Unbanned', icon_url=icon)
+        banned_users = await ctx.guild.bans()
+        member_name, member_discriminator = member.split('#')
+        
+        for ban_entery in banned_users:
+            user = ban_entery.user
+
+            if (user.name, user.discriminator) == (member_name, member_discriminator):
+                await ctx.guild.unban(user)
+                embed.set_author(name=f'{user.name}#{user.discriminator} Unbanned', icon_url=icon)
+                await ctx.send(embed=embed)
+                return
+
     @slash_command(description='Create embeds')
     @dislash.has_permissions(manage_messages=True)
     async def embed(self, ctx, title=None, description=None, color=None, image=None, footer=None):
@@ -96,8 +113,6 @@ class Slash(commands.Cog):
         embed2.set_footer(text='Ended at ')
         await msg.edit('🎉 GIVEAWAY ENDED 🎉', embed=embed2)
         await ctx.send(f'Congratulations {winner.mention}! You won the **{prize}**!', view=view)
-
-
 
 def setup(bot):
     bot.add_cog(Slash(bot))
