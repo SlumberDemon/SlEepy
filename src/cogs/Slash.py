@@ -96,8 +96,8 @@ class Slash(commands.Cog):
         view = url_button_generator(label='Jump to original message', url=msg.jump_url)
         embed2 = discord.Embed(title=prize, description=f'Winner: {winner.mention} \n Hosted by: {ctx.author.mention}', timestamp=datetime.datetime.utcnow())
         embed2.set_footer(text='Ended at ')
-        await msg.edit(embed=embed2, view=view)
-        await ctx.send(f'Congratulations {winner.mention}! You won the {prize}!')
+        await msg.edit('🎉 GIVEAWAY ENDED 🎉', embed=embed2, view=view)
+        await ctx.send(f'Congratulations {winner.mention}! You won the **{prize}**!')
 
 
 
