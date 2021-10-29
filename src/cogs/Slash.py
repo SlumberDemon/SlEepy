@@ -53,9 +53,10 @@ class Slash(commands.Cog):
         embed.set_author(name=f'{member} kicked', icon_url=icon)
         await ctx.send(embed=embed)
 
-    @slash_command(description='Uban user')
+    @slash_command(description='Unban user')
     @dislash.has_permissions(ban_members=True)
     async def unban(self, ctx, member):
+        embed = discord.Embed()
         banned_users = await ctx.guild.bans()
         member_name, member_discriminator = member.split('#')
         
