@@ -76,9 +76,10 @@ class Slash(commands.Cog):
     
     @slash_command(description='Giveaway command')
     @dislash.has_permissions(manage_messages=True)
-    async def giveaway(self, ctx, time, prize):
+    async def giveaway(self, ctx, time, prize, channel_id):
         time_convert = {'s':1, 'm':60, 'h':3600, 'd': 86400}
         ctime = int(time[0]) * time_convert[time[-1]]
+        channel = self.bot.get_channel(channel_id)
         embed1 = discord.Embed(title=prize, description=f'React with 🎉 to enter \n Time remaining: {ctime}', colour=0xc3d9df)
         msg = await ctx.send(embed=embed1)
 
@@ -92,7 +93,7 @@ class Slash(commands.Cog):
 
         winner = random.choice(users)
 
-        embed2 = discord.Embed(title=prize, description=f'Winner: {Winner.mention} \n Hosted by: {ctx.author.mention}', timestamp=datetime.datetime.utcnow())
+        embed2 = discord.Embed(title=prize, description=f'Winner: {winner.mention} \n Hosted by: {ctx.author.mention}', timestamp=datetime.datetime.utcnow())
         embed2.set_footer(text='Ended at')
         await msg.edit(embed=embed2)
         await ctx.send(f'Congratulations {winner.mention}! You won the {prize}!')
