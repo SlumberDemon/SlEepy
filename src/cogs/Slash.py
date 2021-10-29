@@ -57,7 +57,6 @@ class Slash(commands.Cog):
     @dislash.has_permissions(ban_members=True)
     async def unban(self, ctx, member, *, reason=None):
         embed = discord.Embed(description=f'Reason: `{reason}`', colour=0xc3d9df)
-        embed.set_author(name=f'{member} Unbanned', icon_url=icon)
         banned_users = await ctx.guild.bans()
         member_name, member_discriminator = member.split('#')
         
@@ -66,7 +65,7 @@ class Slash(commands.Cog):
 
             if (user.name, user.discriminator) == (member_name, member_discriminator):
                 await ctx.guild.unban(user)
-                embed.set_author(name=f'{user.name}#{user.discriminator} Unbanned', icon_url=icon)
+                embed.set_author(name=f'{user.name}#{user.discriminator} Unbanned', icon_url=user.avatar.url)
                 await ctx.send(embed=embed)
                 return
 
