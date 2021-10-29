@@ -1,4 +1,4 @@
-import discord, dislash, asyncio, random
+import discord, dislash, asyncio, random, sys
 from dislash import slash_command
 from discord.ext import commands
 from src.extras.views import invite_link
