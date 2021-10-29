@@ -57,14 +57,14 @@ class Slash(commands.Cog):
     @dislash.has_permissions(ban_members=True)
     async def unban(self, ctx, user):
         banned_users = await ctx.guild.bans()
-        member_name, member_discriminator = member.split('#')
+        user_name, user_discriminator = user.split('#')
         
         for ban_entery in banned_users:
-            user = ban_entery.user
+            member = ban_entery.user
 
-            if (user.name, user.discriminator) == (member_name, member_discriminator):
+            if (member.name, member.discriminator) == (user_name, user_discriminator):
                 await ctx.guild.unban(user)
-                embed.set_author(name=f'{user.name}#{user.discriminator} Unbanned', icon_url=user.avatar.url)
+                embed.set_author(name=f'{member.name}#{member.discriminator} Unbanned', icon_url=user.avatar.url)
                 await ctx.send(embed=embed)
                 return
 
