@@ -79,7 +79,7 @@ class Slash(commands.Cog):
     async def giveaway(self, ctx, time, prize, channel_id):
         time_convert = {'s':1, 'm':60, 'h':3600, 'd': 86400}
         ctime = int(time[0]) * time_convert[time[-1]]
-        channel = channel_id
+        channel = self.get_channel(channel_id)
         embed1 = discord.Embed(title=prize, description=f'React with 🎉 to enter \n Time remaining: {ctime}', colour=0xc3d9df)
         msg = await channel.send(embed=embed1)
 
