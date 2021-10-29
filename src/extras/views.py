@@ -25,11 +25,23 @@ class Help_Dropdown(discord.ui.Select):
                 Mod = discord.Embed(title='Moderation', colour=0xc3d9df)
                 Mod.add_field(name='**Ban**', value='Ban user', inline=False)
                 Mod.add_field(name='**Kick**', value='Kick user', inline=False)
+                Mod.add_field(name='**Embed**', value='Create embeds', inline=False)
                 await interaction.response.edit_message(embed=Moderation)
             else:
                 await interaction.response.send_message('Embed error', ephemeral=True)
         else:
             await interaction.response.send_message('You are not allowed to control this message', ephemeral=True)
+
+class Dropdown_Help_Send(discord.ui.View):
+    def __init__(self, ctx: commands.Context):
+        super().__init__()
+
+        url1 = f'https://discord.com/api/oauth2/authorize?client_id=903187756254130177&permissions=3557156934&scope=applications.commands%20bot'
+
+        self.ctx = ctx
+
+        self.add_item(Help_Dropdown(ctx))
+        self.add_item(discord.ui.Button(label='Invite', url=url1))
 
 class invite_link(discord.ui.View):
     def __init__(self):

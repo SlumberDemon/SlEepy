@@ -1,7 +1,7 @@
 import discord, dislash, asyncio, random, sys
 from dislash import slash_command
 from discord.ext import commands
-from src.extras.views import invite_link
+from src.extras.views import invite_link, Dropdown_Help_Send
 
 class Slash(commands.Cog):
 
@@ -26,6 +26,11 @@ class Slash(commands.Cog):
         embed.set_thumbnail(url='https://cdn.discordapp.com/avatars/549563196579774465/f1df0e07a490bfbeb4704a54d6181fd8.webp?size=1024')
         embed.add_field(name='Website', value='[click here](https://slumberdemon.carrd.co/)')
         await ctx.send(embed=embed)
+
+    @slash_command(description='Help command')
+    async def help(self, ctx):
+        view = Dropdown_Help_Send(ctx)
+        await ctx.send('Get some help!!!', view=view)
     
     # Mod
 
