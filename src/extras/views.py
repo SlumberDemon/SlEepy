@@ -18,15 +18,15 @@ class Help_Dropdown(discord.ui.Select):
             if int(self.values[0]) == 0:
                 Utility = discord.Embed(title='Utility', colour=0xc3d9df)
                 Utility.add_field(name='**latency**', value='Shows bot latency', inline=False)
-                Utility.add_field(name='**Invite**', value='Bot Invite')
-                Utility.add_field(name='**SlumberDemon**', value='Shows info on the developer')
+                Utility.add_field(name='**Invite**', value='Bot Invite', inline=False)
+                Utility.add_field(name='**SlumberDemon**', value='Shows info on the developer', inline=False)
                 await interaction.response.edit_message(embed=Utility)
             elif int(self.values[0]) == 1:
                 Mod = discord.Embed(title='Moderation', colour=0xc3d9df)
                 Mod.add_field(name='**Ban**', value='Ban user', inline=False)
                 Mod.add_field(name='**Kick**', value='Kick user', inline=False)
                 Mod.add_field(name='**Embed**', value='Create embeds', inline=False)
-                await interaction.response.edit_message(embed=Moderation)
+                await interaction.response.edit_message(embed=Mod)
             else:
                 await interaction.response.send_message('Embed error', ephemeral=True)
         else:
