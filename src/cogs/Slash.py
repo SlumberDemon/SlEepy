@@ -47,5 +47,54 @@ class Slash(commands.Cog):
         embed.set_author(name=f'{member} kicked', icon_url=icon)
         await ctx.send(embed=embed)
 
+    @slash_command(description='Create embeds')
+    @dislash.has_permissions(manage_messages=True)
+    async def embed(self, ctx, title=None, description=None, color=None, image=None, footer=None):
+        if color is not None:
+            try:
+                color = await commands.ColorConverter().convert(self, color)
+            except:
+                color = None
+        if color is None:
+            color = discord.Color.default()
+        emb = discord.Embed(color=color)
+        if title is not None:
+            emb.title = title
+        if description is not None:
+            emb.description = description
+        if image is not None:
+            emb.set_image(url=image)
+        if footer is not None:
+            emb.set_footer(text=footer)
+        await ctx.send(embed=emb)
+    
+    @slash_command(description='Giveaway command')
+    @dislash.has_permissions(manage_messages=True)
+    async def giveaway(self, time, prize, channel_id=None):
+        if channel = None:
+            channel = ctx.channel
+        time_convert = {'s':1, 'm':60, 'h':3600, 'd': 86400}
+        ctime = int(time[0]) * time_convert[time[-1]]
+        channel = ctx.get_channel(channel_id)
+        embed1 = discord.Embed(title=prize, description=f'React with 🎉 to enter \n Time remaining: {ctime}')
+        msg = await channel.send(embed=embed1)
+
+        await msg.add_reaction('🎉')
+        await asyncio.sleep(ctime)
+
+        new_gaw_msg = await ctx.channel.fetch_message(gaw_msg.id)
+
+        users = await new_gaw_msg.reactions[0].users().flatten()
+        users.pop(users.index(client.user))
+
+        winner = random.choice(users)
+
+        embed2 = discord.Embed(title=prize, description=f'Winner: {Winner.mention} \n Hosted by: {ctx.author.mention}', timestamp=datetime.datetime.utcnow())
+        embed2.set_footer(text='Ended at')
+        await msg.edit(embed=embed2)
+        await ctx.send(f'Congratulations {winner.mention}! You won the {prize}!')
+
+
+
 def setup(bot):
     bot.add_cog(Slash(bot))
