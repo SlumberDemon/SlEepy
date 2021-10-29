@@ -81,7 +81,7 @@ class Slash(commands.Cog):
         ctime = int(time[0]) * time_convert[time[-1]]
         channel = self.bot.get_channel(channel_id)
         embed1 = discord.Embed(title=prize, description=f'React with 🎉 to enter \n Time remaining: {ctime}', colour=0xc3d9df)
-        msg = await ctx.send(embed=embed1)
+        msg = await channel.send(embed=embed1)
 
         await msg.add_reaction('🎉')
         await asyncio.sleep(ctime)
@@ -97,7 +97,7 @@ class Slash(commands.Cog):
         embed2 = discord.Embed(title=prize, description=f'Winner: {winner.mention} \n Hosted by: {ctx.author.mention}', timestamp=datetime.datetime.utcnow())
         embed2.set_footer(text='Ended at ')
         await msg.edit(embed=embed2, view=view)
-        await ctx.send(f'Congratulations {winner.mention}! You won the {prize}!')
+        await channel.send(f'Congratulations {winner.mention}! You won the {prize}!')
 
 
 
