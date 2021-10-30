@@ -10,6 +10,12 @@ class Slash(commands.Cog):
 
     # Utility
 
+    @slash_command(description='Help command')
+    async def help(self, ctx):
+        view = Dropdown_Help_Send(ctx)
+        embed = discord.Embed(description='**Bot Help** \n Hello! Welcome to the help page. \n ** ** \n Use \"/help\" for this view. \n Use the dropdown menu below to select a category. \n **Support Server** \n For more help, consider joining the official server over at https://discord.gg/sQxptgyAu8 \n ** ** \n I\'m also open source. You can see my code on [GitHub](open source soon)!', colour=0xc3d9df)
+        await ctx.send(embed=embed, view=view)
+
     @slash_command(description='Shows bot latency')
     async def latency(self, ctx):
         embed = discord.Embed(description=f'🏓 Pong! {round(self.bot.latency * 1000)}ms', colour=0xc3d9df)
@@ -26,12 +32,6 @@ class Slash(commands.Cog):
         embed.set_thumbnail(url='https://cdn.discordapp.com/avatars/549563196579774465/f1df0e07a490bfbeb4704a54d6181fd8.webp?size=1024')
         embed.add_field(name='Website', value='[click here](https://slumberdemon.carrd.co/)')
         await ctx.send(embed=embed)
-
-    @slash_command(description='Help command')
-    async def help(self, ctx):
-        view = Dropdown_Help_Send(ctx)
-        embed = discord.Embed(description='**Bot Help** \n Hello! Welcome to the help page. \n ** ** \n Use \"/help\" for this view. \n Use the dropdown menu below to select a category. \n **Support Server** \n For more help, consider joining the official server over at https://discord.gg/sQxptgyAu8 \n ** ** \n I\'m also open source. You can see my code on [GitHub](open source soon)!', colour=0xc3d9df)
-        await ctx.send(embed=embed, view=view)
     
     # Mod
 
