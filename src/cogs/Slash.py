@@ -32,6 +32,13 @@ class Slash(commands.Cog):
         embed.set_thumbnail(url='https://cdn.discordapp.com/avatars/549563196579774465/f1df0e07a490bfbeb4704a54d6181fd8.webp?size=1024')
         embed.add_field(name='Website', value='[click here](https://slumberdemon.carrd.co/)')
         await ctx.send(embed=embed)
+
+    @slash_command(description='Shows user info')
+    async def user(self, ctx, user:discord.User=None):
+        user = ctx.author if not user else user
+        embed = discord.Embed(title=f'{user}', description=f'` User ID ` {user.id} \n ** ** \n ` Account Created ` {user.created_at.strftime("%c")}', colour=0xc3d9df)
+        embed.set_thumbnail(url=user.avatar.url)
+        await ctx.send(embed=embed)
     
     # Mod
 
