@@ -9,15 +9,10 @@ class Listener(commands.Cog):
 
 
     @commands.Cog.listener()
-    async def on_command_error(self, ctx, error):
-        channel = 903926683185348619
+    async def on_slash_command_error(self, inter, error):
+        channel = self.bot.get_channel(903926683185348619)
         await channel.send(error)
         
-    @commands.Cog.listener()
-    async def on_slash_command_error(self, inter, error):
-        channel = 903926683185348619
-        await channel.send(error)
-
 
 def setup(bot):
     bot.add_cog(Listener(bot))
