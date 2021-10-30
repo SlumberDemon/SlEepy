@@ -34,7 +34,7 @@ class Slash(commands.Cog):
         await ctx.send(embed=embed)
 
     @slash_command(description='Shows user info')
-    async def user(self, ctx, user:discord.User=None):
+    async def avatar(self, ctx, user:discord.User=None):
         user = ctx.author if not user else user
         embed = discord.Embed(title=f'{user}', description=f'` User ID ` {user.id} \n ** ** \n ` Account Created ` {user.created_at.strftime("%c")}', colour=0xc3d9df)
         embed.set_thumbnail(url=user.avatar.url)
