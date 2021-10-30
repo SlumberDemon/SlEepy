@@ -43,7 +43,7 @@ class Slash(commands.Cog):
     @slash_command(description='Shows user avatar')
     async def user(self, ctx, user:discord.User=None):
         user = ctx.author if not user else user
-        embd = discord.Embed(title=f'{user}', colour=0xc3d9df)
+        embed = discord.Embed(title=f'{user}', colour=0xc3d9df)
         embed.set_image(url=user.avatar.url)
     
     # Mod
