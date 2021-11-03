@@ -45,7 +45,7 @@ class Slash(commands.Cog):
         user = ctx.author if not user else user
         embed = discord.Embed(title=f'{user}', colour=0xc3d9df)
         embed.set_image(url=user.avatar.url)
-    
+
     # Mod
 
     @slash_command(description='Ban user')
