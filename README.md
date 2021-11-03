@@ -2,7 +2,9 @@
 
 
 # SlEepy
-SlEepy the moderation and utlity bot
+SlEepy the moderation and utility bot
+
+
 
 
 
