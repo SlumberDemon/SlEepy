@@ -2,6 +2,8 @@
 
 
 # SlEepy
-SlEepy the general purpose discord bot 
+SlEepy the moderation and utlity bot
+
+
 
 
