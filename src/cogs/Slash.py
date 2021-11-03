@@ -13,7 +13,7 @@ class Slash(commands.Cog):
     @slash_command(description='Help command')
     async def help(self, ctx):
         view = Dropdown_Help_Send(ctx)
-        embed = discord.Embed(description='**Bot Help** \n Hello! Welcome to the help page. \n ** ** \n Use \"/help\" for this view. \n Use the dropdown menu below to select a category. \n **Support Server** \n For more help, consider joining the official server over at https://discord.gg/sQxptgyAu8 \n ** ** \n I\'m also open source. You can see my code on [GitHub](open source soon)!', colour=0xc3d9df)
+        embed = discord.Embed(description='**Bot Help** \n Hello! Welcome to the help page. \n ** ** \n Use \"/help\" for this view. \n Use the dropdown menu below to select a category. \n **Support Server** \n For more help, consider joining the official server over at https://discord.gg/sQxptgyAu8 \n ** ** \n I\'m also open source. You can see my code on [GitHub](https://github.com/SlumberDemon/SlEepy/tree/main)!', colour=0xc3d9df)
         await ctx.send(embed=embed, view=view)
 
     @slash_command(description='Shows bot latency')
@@ -45,6 +45,12 @@ class Slash(commands.Cog):
         user = ctx.author if not user else user
         embed = discord.Embed(title=f'{user}', colour=0xc3d9df)
         embed.set_image(url=user.avatar.url)
+
+    @slash_command(description='Show bot source')
+    async def source(self, ctx):
+        embed = discord.Embed(title='SlEepy Source', colour=0xc3d9df)
+        view = url_button_generator(label='Source', url='https://github.com/SlumberDemon/SlEepy/tree/main')
+        await ctx.send(embed=embed, view=view)
 
     # Mod
 
