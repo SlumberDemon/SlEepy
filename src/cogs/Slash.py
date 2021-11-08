@@ -132,16 +132,6 @@ class Slash(commands.Cog):
         embed2.set_footer(text='Ended at ')
         await msg.edit('🎉 **GIVEAWAY ENDED** 🎉', embed=embed2)
         await ctx.send(f'Congratulations {winner.mention}! You won the **{prize}**!', view=view)
-
-    @dislash.slash_command(description='Edit commands')
-    async def edit(self, inter: SlashInteraction):
-        pass
-
-    @edit.sub_command(description='Edit bot messages')
-    async def message(self, ctx, message_id, channel: discord.TextChannel, *, message):
-        msg = await channel.fetch_message(message_id)
-        await msg.edit(content=message)
-
-
+        
 def setup(bot):
     bot.add_cog(Slash(bot))
