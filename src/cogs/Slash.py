@@ -1,5 +1,5 @@
 import discord, dislash, asyncio, random, sys, datetime
-from dislash import slash_command
+from dislash import slash_command, SlashInteraction
 from discord.ext import commands
 from src.extras.views import invite_link, Dropdown_Help_Send, url_button_generator
 
