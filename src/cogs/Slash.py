@@ -138,7 +138,7 @@ class Slash(commands.Cog):
         pass
 
     @edit.sub_command(description='Edit bot messages')
-    async def message(self, ctx, message_id, channel: channel: discord.TextChannel, *, message):
+    async def message(self, ctx, message_id, channel: discord.TextChannel, *, message):
         msg = await channel.fetch_message(message_id)
         await msg.edit(content=message)
 
