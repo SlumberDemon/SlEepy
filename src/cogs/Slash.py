@@ -53,6 +53,12 @@ class Slash(commands.Cog):
         view = url_button_generator(label='Source', url='https://github.com/SlumberDemon/SlEepy/tree/main')
         await ctx.send(embed=embed, view=view)
 
+    @slash_command(description='Shows bot info')
+    async def info(self, ctx):
+        embed = discord.Embed(title='Bot info', colour=0xc3d9df)
+        embed.add_field(name='Guilds', value=f'` {self.bot.guilds}')
+        await ctx.send(embed=embed)
+
     # Mod
 
     @slash_command(description='Ban user')
