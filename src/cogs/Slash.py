@@ -56,8 +56,7 @@ class Slash(commands.Cog):
     @slash_command(description='Shows bot info')
     async def info(self, ctx):
         embed = discord.Embed(title='Bot info', colour=0xc3d9df)
-        embed.add_field(name='Guild info', value=f'{self.bot.guilds}')
-        embed.add_field(name='Guild count', value=f'{len(self.bot.guilds)}')
+        embed.add_field(name='Guild count', value=f'`{len(self.bot.guilds)}`')
         await ctx.send(embed=embed)
 
     # Mod
