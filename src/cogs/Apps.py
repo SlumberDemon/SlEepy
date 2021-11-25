@@ -25,8 +25,9 @@ class Apps(commands.Cog):
     @dislash.message_command(name="Quote")
     async def quote(self, inter: ContextMenuInteraction):
         view = url_button_generator(label='View message', url=inter.message.jump_url)
-        embed = discord.Embed(description=inter.message.content, timestamp=inter.message.datetime())
+        embed = discord.Embed(description=inter.message.content, timestamp=datetime.datetime.utcnow())
         embed.set_author(name=f'{inter.message.author}', icon_url=inter.message.author.avatar.url)
+        embed.set_footer(text='Quoted at ')
         await inter.respond(embed=embed, view=view)
 
 def setup(bot):
