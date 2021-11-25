@@ -1,4 +1,4 @@
-import discord, dislash
+import discord, dislash, datetime
 from dislash import slash_command, SlashInteraction, ContextMenuInteraction
 from discord.ext import commands
 from src.extras.views import url_button_generator
@@ -25,7 +25,7 @@ class Apps(commands.Cog):
     @dislash.message_command(name="Quote")
     async def quote(self, inter: ContextMenuInteraction):
         view = url_button_generator(label='View message', url=inter.message.jump_url)
-        embed = discord.Embed(description=inter.message.content)
+        embed = discord.Embed(description=inter.message.content, timestamp=inter.message.datetime())
         embed.set_author(name=f'{inter.message.author}', icon_url=inter.message.author.avatar.url)
         await inter.respond(embed=embed, view=view)
 
