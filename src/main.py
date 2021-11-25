@@ -17,6 +17,7 @@ inter_client = InteractionClient(bot, modify_send=False) # modify_send=False to 
 # Cogs
 
 bot.load_extension('cogs.Slash')
+bot.load_extension('cogs.Apps')
 bot.load_extension('cogs.Events')
 bot.load_extension('cogs.Error')
 
