@@ -2,7 +2,7 @@ import discord, dislash
 from dislash import slash_command, SlashInteraction, ContextMenuInteraction
 from discord.ext import commands
 
-class App(commands.Cog):
+class Apps(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
@@ -16,4 +16,4 @@ class App(commands.Cog):
         )
 
 def setup(bot):
-    bot.add_cog(App(bot))
+    bot.add_cog(Apps(bot))
