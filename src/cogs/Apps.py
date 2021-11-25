@@ -16,7 +16,7 @@ class Apps(commands.Cog):
         )
 
     @dislash.message_command(name="Reverse")
-    async def reverse(inter: ContextMenuInteraction):
+    async def reverse(self, inter: ContextMenuInteraction):
         # Message commands always have only this ^ argument
         if inter.message.content:
             # Here we will send a reversed message to the chat
