@@ -24,7 +24,7 @@ class Apps(commands.Cog):
     @dislash.message_command(name="Quote")
     async def quote(self, inter: ContextMenuInteraction):
         embed = discord.Embed(description=inter.message.content)
-        embed.set_author(name=f'{inter.author}', icon_url=inter.author.avatar.url)
+        embed.set_author(name=f'{inter.message.author}', icon_url=inter.message.author.avatar.url)
         await inter.respond(embed=embed)
 
 def setup(bot):
