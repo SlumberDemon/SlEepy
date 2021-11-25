@@ -1,5 +1,5 @@
 import discord, dislash
-from dislash import slash_command, SlashInteraction
+from dislash import slash_command, SlashInteraction, ContextMenuInteraction
 from discord.ext import commands
 
 class App(commands.Cog):
