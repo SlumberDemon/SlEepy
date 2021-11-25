@@ -22,9 +22,9 @@ class Apps(commands.Cog):
             await inter.respond("There's no content", ephemeral=True)
 
     @dislash.message_command(name="Quote")
-    async def quote(self, ctx: ContextMenuInteraction):
+    async def quote(self, inter: ContextMenuInteraction):
         embed = discord.Embed(description=inter.message.content)
-        await ctx.respond(embed=embed)
+        await inter.respond(embed=embed)
 
 def setup(bot):
     bot.add_cog(Apps(bot))
