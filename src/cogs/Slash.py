@@ -33,10 +33,6 @@ class Slash(commands.Cog):
         embed.add_field(name='Website', value='[click here](https://slumberdemon.carrd.co/)')
         await ctx.send(embed=embed)
 
-    @slash_command(description='Bot info')
-    async info(self, ctx):
-        await ctx.send(f'{self.bot.guilds}')
-
     @slash_command(description='Shows user info')
     async def user(self, ctx, user:discord.User=None):
         user = ctx.author if not user else user
