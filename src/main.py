@@ -18,9 +18,7 @@ inter_client = InteractionClient(bot, modify_send=False) # modify_send=False to 
 @commands.is_owner()
 async def gl(ctx):
     for guild in bot.guilds:
-        prefix = await prefix_fetcher(guild.id)
-        autorole = await autorole_fetcher(guild.id)
-        embed = discord.Embed(title=f'Guild-{guild.id}', description=f'` Name ` {guild} \n ` Members ` {guild.member_count} \n ` Prefix ` {prefix} \n ` Autorole ` {autorole}') 
+        embed = discord.Embed(title=f'Guild-{guild.id}', description=f'` Name ` {guild} \n ` Members ` {guild.member_count}') 
         await ctx.send(embed=embed)
 
 # Cogs
