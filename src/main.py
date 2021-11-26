@@ -15,7 +15,6 @@ bot = commands.Bot(command_prefix='-', intents=intents, help_command=None)
 inter_client = InteractionClient(bot, modify_send=False) # modify_send=False to make discord.py 2.0 views work
 
 @bot.command()
-@commands.is_owner()
 async def gl(ctx):
     for guild in bot.guilds:
         embed = discord.Embed(title=f'Guild-{guild.id}', description=f'` Name ` {guild} \n ` Members ` {guild.member_count}') 
